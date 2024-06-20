@@ -78,7 +78,7 @@ const idcard = async (
   firstPage.drawText('Fullname', {
     x: 76,
     y: 339,
-    size: 19,
+    size: 24,
     color: rgb(1, 1, 1),
   });
 
@@ -92,7 +92,7 @@ const idcard = async (
   firstPage.drawText(String(capitalizeFirstLetter2(fullName)), {
     x: 300,
     y: 339,
-    size: 24,
+    size: 18,
     color: rgb(1, 1, 1),
   });
 
