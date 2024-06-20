@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Selection Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            
+        }
+        form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        form div {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="date"],
+        input[type="file"],
+        select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .hidden {
+            display: none;
+        }
+        #mainForm {
+            background-color: #007bff;
+            padding: 20px;
+            border-radius: 10px;
+            color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        #mainForm div {
+            margin-bottom: 20px;
+        }
+        #mainForm label {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        #mainForm input[type="text"],
+        #mainForm input[type="email"],
+        #mainForm input[type="date"],
+        #mainForm input[type="file"],
+        #mainForm select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-top: 5px;
+        }
+        #mainForm button {
+            background-color: #ff6600;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        #mainForm button:hover {
+            background-color: #cc5200;
+        }
+        #mainForm input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        #mainForm label[for="agreement"],
+        #mainForm label[for="agreementG"] {
+            display: inline;
+            font-size: 12px;
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="mail">
+        <label for="email">Email *</label>
+        <input type="email" id="email" name="email" required>
+    </div>
+    
+    <div class="lang">
+        <label for="language">Which language is preferable to you? (તમને કઇ ભાષા અનુકુળ રહેશે?) *</label>
+        <select id="language" name="language" required>
+            <option value="" selected disabled>Select language / ભાષા પસંદ કરો</option>
+            <option value="english">English</option>
+            <option value="gujarati">ગુજરાતી</option>
+        </select>
+    </div>
+
+    <!-- English Form -->
+    <form id="englishForm" action="/send-message" method="POST" enctype="multipart/form-data" class="hidden">
+        <div>
+            <label for="fullName">Full Name *</label>
+            <input type="text" id="fullName" name="fullName" required>
+        </div>
+        <div>
+            <label for="dob">Date of Birth *</label>
+            <input type="date" id="dob" name="dob" required>
+        </div>
+        <div>
+            <label for="gender">Gender *</label>
+            <select id="gender" name="gender" required>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+        <div>
+            <label for="nationality">Nationality *</label>
+            <select id="nationality" name="nationality" required>
+                <option value="indian">Indian</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+        <div>
+            <label for="address">Address *</label>
+            <input type="text" id="address" name="address" required>
+        </div>
+        <div>
+            <label for="district">District *</label>
+            <input type="text" id="district" name="district" required>
+        </div>
+        <div>
+            <label for="bloodGroup">Blood Group *</label>
+            <input type="text" id="bloodGroup" name="bloodGroup" required>
+        </div>
+        <div>
+            <label for="contactNumber">Contact Number (WhatsApp) *</label>
+            <input type="text" id="contactNumber" name="contactNumber" required>
+        </div>
+        <div>
+            <label for="emailAddress">Email Address *</label>
+            <input type="email" id="emailAddress" name="emailAddress" required>
+        </div>
+        <div>
+            <label for="photo">Upload Your Passport Size Photo *</label>
+            <input type="file" id="photo" name="photo" accept="image/*" required>
+        </div>
+        <div>
+            <label for="howHear">How did you hear about Monarch Foundation? *</label>
+            <select id="howHear" name="howHear" required>
+                <option value="socialMedia">Social Media</option>
+                <option value="familyFriends">Family/Friends</option>
+                <option value="event">Event</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+        <div>
+            <label for="timeContribution">How much time can you contribute to Monarch Foundation activities? *</label>
+            <input type="text" id="timeContribution" name="timeContribution" required>
+        </div>
+        <div>
+            <label for="teamLeader">Would you like to work as a "Team Leader" for upcoming Monarch Foundation programs? *</label>
+            <select id="teamLeader" name="teamLeader" required>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+                <option value="maybe">Maybe</option>
+            </select>
+        </div>
+        <div>
+            <input type="checkbox" id="agreement" name="agreement" required>
+            <label for="agreement">By submitting this form, I agree to abide by the rules and regulations set by Monarch Foundation. I also consent to receive communication related to membership benefits, events, and updates from Monarch Foundation.</label>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+
+    <!-- Gujarati Form -->
+    <form id="gujaratiForm" action="/send-message" method="post" enctype="multipart/form-data" class="hidden">
+        <div>
+            <label for="fullNameG">સભ્ય/સ્વયંસેવકનું પૂરું નામ *</label>
+            <input type="text" id="fullNameG" name="fullName" required>
+        </div>
+        <div>
+            <label for="dobG">જન્મતારીખ​ *</label>
+            <input type="date" id="dobG" name="dob" required>
+        </div>
+        <div>
+            <label for="genderG">જાતિ *</label>
+            <select id="genderG" name="gender" required>
+                <option value="male">પુરૂષ</option>
+                <option value="female">સ્ત્રી</option>
+                <option value="other">નાન્યતર​</option>
+            </select>
+        </div>
+        <div>
+            <label for="nationalityG">રાષ્ટ્રીયતા *</label>
+            <select id="nationalityG" name="nationality" required>
+                <option value="indian">ભારતીય</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+        <div>
+            <label for="addressG">રહેણાંકનું સરનામું *</label>
+            <input type="text" id="addressG" name="address" required>
+        </div>
+        <div>
+            <label for="districtG">જિલ્લો *</label>
+            <input type="text" id="districtG" name="district" required>
+        </div>
+        <div>
+            <label for="bloodGroupG">બ્લડ ગ્રુપ *</label>
+            <input type="text" id="bloodGroupG" name="bloodGroup" required>
+        </div>
+        <div>
+            <label for="contactNumberG">સંપર્ક નંબર (WhatsApp કાર્યરત હોય એવો નંબર આપ​વો) *</label>
+            <input type="text" id="contactNumberG" name="contactNumber" required>
+        </div>
+        <div>
+            <label for="emailAddressG">ઇ-મેઇલ એડ્રેસ​ *</label>
+            <input type="email" id="emailAddressG" name="emailAddress" required>
+        </div>
+        <div>
+            <label for="photoG">તમારો પાસપોર્ટ સાઇઝનો ફોટોગ્રાફ અહીંયા અપલોડ કરો. *</label>
+            <input type="file" id="photoG" name="photo" accept="image/*" required>
+        </div>
+        <div>
+            <label for="howHearG">તમને મોનાર્ક ફાઉન્ડેશન વિશે કેવી રીતે જાણ​વા મળ્યું? *</label>
+            <select id="howHearG" name="howHear" required>
+                <option value="socialMedia">સોશિયલ મિડીયા</option>
+                <option value="familyFriends">પરિવારનાં સભ્યો અથ​વા મિત્રો દ્વારા</option>
+                <option value="event">પ્રસંગ દ્વારા</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+        <div>
+            <label for="timeContributionG">મોનાર્ક ફાઉન્ડેશન અંતર્ગત થતી પ્ર​વ્રુત્તિમાં તમે કેટલો સમય સહયોગ આપી શકો છો? *</label>
+            <input type="text" id="timeContributionG" name="timeContribution" required>
+        </div>
+        <div>
+            <label for="teamLeaderG">શું તમે મોનાર્ક ફાઉન્ડેશનના આગામી કાર્યક્રમો માટે "પ્રભારી" (ટીમ લીડર) તરીકે કામ કરવા ઈચ્છો છો? *</label>
+            <select id="teamLeaderG" name="teamLeader" required>
+                <option value="yes">હા</option>
+                <option value="no">ના</option>
+                <option value="maybe">વિચારી શકાય​</option>
+            </select>
+        </div>
+        <div>
+            <input type="checkbox" id="agreementG" name="agreement" required>
+            <label for="agreementG">આ ફોર્મ સબમિટ કરીને, હું મોનાર્ક ફાઉન્ડેશન દ્વારા નિર્ધારિત નિયમો અને શરતોનું પાલન કરવા માટે સંમત છું. હું મોનાર્ક ફાઉન્ડેશન તરફથી સભ્યપદના લાભો, ઇવેન્ટ્સ અને અપડેટ્સ સંબંધિત સંચાર પ્રાપ્ત કરવા માટે પણ સંમતિ આપું છું.</label>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        document.getElementById('language').addEventListener('change', function() {
+            const language = this.value;
+            document.getElementById('englishForm').classList.add('hidden');
+            document.getElementById('gujaratiForm').classList.add('hidden');
+
+            if (language === 'english') {
+                document.getElementById('englishForm').classList.remove('hidden');
+            } else if (language === 'gujarati') {
+                document.getElementById('gujaratiForm').classList.remove('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
