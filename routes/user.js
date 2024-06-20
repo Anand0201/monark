@@ -29,11 +29,6 @@ router.post('/sendmessage', upload.single('photo'), async (req, res) => {
         const { bloodGroup, district, dob, contactNumber, fullName, emailAddress, gender, nationality, address, currentEducation, occupation, volunteeringExperience, skills } = req.body;
         const imagepath = req.file.path;
 
-        // Check if user already exists
-        const existuser = await user.findOne({ fullName: fullName, contactNumber: contactNumber });
-        if (existuser) {
-            return res.render('form', { message: 'User already exists' });
-        }
 
         const imageBuffer = fs.readFileSync(imagepath);
         const idNumber = getNextId();
